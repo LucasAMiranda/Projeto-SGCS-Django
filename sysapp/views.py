@@ -81,17 +81,16 @@ def abrir_chamados(request):
     return render(request, 'abrir_chamados.html', {'form': form})
 
 
-@login_required
 def dashboard_chamados(request, estado='novos'):
     if request.method == 'POST':
         # Obter dados do formulário
-        codigo = request.POST.get('codigo')
-        tipo = request.POST.get('tipo')
-        categoria = request.POST.get('categoria')
-        titulo = request.POST.get('titulo')
-        descricao = request.POST.get('descricao')
-        prioridade = request.POST.get('prioridade')
-        responsavel_id = request.POST.get('responsavel')
+        codigo = request.POST.get('codigo', 0)
+        tipo = request.POST.get('tipo', '')
+        categoria = request.POST.get('categoria', '')
+        titulo = request.POST.get('titulo', '')
+        descricao = request.POST.get('descricao', '')
+        prioridade = request.POST.get('prioridade', '')
+        responsavel_id = request.POST.get('responsavel', '')
 
         # Verificar se o responsável selecionado é um Servidor Técnico
         try:

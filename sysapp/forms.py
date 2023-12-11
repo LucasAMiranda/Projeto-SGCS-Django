@@ -7,6 +7,10 @@ from .models import Usuario, Chamado
 class UsuarioForm(forms.ModelForm):
     matricula = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'Matrícula'}))
     password = forms.CharField(label='Senha', widget=forms.PasswordInput)
+
+    class Meta:
+        model = Usuario
+        fields = '__all__'  
   
 
 class CustomLoginForm(AuthenticationForm):
